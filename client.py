@@ -1,10 +1,14 @@
 import socket
 import sys
 import time
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("IP")
+args = parser.parse_args()
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_address = (args.IP, 10001)
 
-server_address = ('localhost', 10001)
 print('connecting to {} port {}'.format(*server_address))
 
 def TCP(message):
